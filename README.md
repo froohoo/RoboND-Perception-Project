@@ -108,6 +108,8 @@ The message contents were also written to yaml files for each scneario as well t
 
 ## Results
 
+### Scenario 1
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
