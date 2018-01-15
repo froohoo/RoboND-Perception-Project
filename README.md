@@ -58,7 +58,7 @@ To begin processing the camera data, the raw simulated feed was first subscribed
 pcl_sub = rospy.Subscriber("/pr2/world/points", pc2.PointCloud2, pcl_callback, queue_size=1)
 ```
 #### Removing Noise
-As previously mentioned, this point cloud data contains noise to mimick a real camera. To remove the noise a statistical filter was applied that compares each point it's neighbors and and then filters out points that are found to be statistical outliers in comparison. Two parameters are definable for the statistcal filter, the number of neighbors sampled and the number of standard deviations from the mean to be considered an outlier. Good results were found for this project with the following parameters:
+As previously mentioned, this point cloud data contains noise to mimick a real camera. To remove the noise a statistical filter was applied that compares each point to the average values of its neighbors and and then filters out points that are found to be statistical outliers in comparison. Two parameters are definable for the statistcal filter, the number of neighbors sampled and the number of standard deviations from the mean to be considered an outlier. Good results were found for this project with the following parameters:
   * Number of neighbors sampled = 6
   * Outlier std deviation from mean = .001
   
