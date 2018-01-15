@@ -58,6 +58,7 @@ Results of applying the statistical filter with the above settings both before a
 #### Conditioning Point Cloud to Improve Computational Performance
 To improve performance, two steps were taken to reduce the complexity of the noise filtered pointcloud. First a voxel grid downsampling was performed to reduce the overall number of cloud points. This process averages the properties of pixels within user defined volumes to create a lower resolution, but more computationally manageable point clound. Leaf size chosen for this exersize was .005 as it provided adequate performance, while maintaining decent visual representations of the objects. 
 The second step applied was to filter out all points that were not in the region of interest (i.e. outside of the table). This was done utilizing two passthrough filters: A filter in the z axis to remove all points below the table and a fiter applied to the y axis to remove all poits to the left and right of the table. One can see in the image below-right that the points below the table and to either side have been clipped following passthrough filtering.
+
 ![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/stat_filter.png "Before passthrough")
 ![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/passthrough.png "After passthrough")
 
