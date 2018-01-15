@@ -95,6 +95,18 @@ Following identification, the next step in the pipeline is to determine the cent
 ```python
 centroid = np.mean(points_arr, axis=0)[:3]
 ```
+Once the centroid was determined, it was then published as a ROS message that also contained: 
+  * the scenario number (test_scene_num)
+  * the object name(object_name)
+  * the arm name (arm_name) to perform the pick/place based on the destination bin requested
+  * the pick pose(pick_pose) the centroid of the object
+  * the place poase(place_pose) the centrold of the destination bin
+
+The message contents were also written to yaml files for each scneario as well to aid in project submission.
+
+---
+
+## Results
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
