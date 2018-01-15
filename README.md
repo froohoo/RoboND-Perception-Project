@@ -40,20 +40,26 @@ More optimal configurations are possible, but these settings resulted in satisfa
 ![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png "Confusion Matrix Raw")
 ![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_2.png "Confusion Matrix Normalized")
 
-### Recieving, Filtering, and Segmenting the Camera Data
+### Recieving, Filtering, and Conditoining the Camera Data
+#### Recieving the Point Cloud
 To begin processing the camera data, the raw simulated feed was first subscribed to as follows:
 ```python
 pcl_sub = rospy.Subscriber("/pr2/world/points", pc2.PointCloud2, pcl_callback, queue_size=1)
 ```
+#### Removing Noise
 As previously mentioned, this point cloud data contains noise to mimick a real camera. To remove the noise a statistical filter was applied that compares each point it's neighbors and and then filters out points that are found to be statistical outliers in comparison. Two parameters are definable for the statistcal filter, the number of neighbors sampled and the number of standard deviations from the mean to be considered an outlier. Good results were found for this project with the following parameters:
   * Number of neighbors sampled = 6
   * Outlier std deviation from mean = .001
-
+  
 Results of applying the statistical filter with the above settings both before and after:
 ![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/no_stat_filter.png "Raw point could data")
 ![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/stat_filter.png "With statistical filter")
 
-
+#### Conditioning to Improve Performance
+To improve performance, two steps were taken to reduce the complexity of the noise filtered pointcloud. First a voxel grid downsampling was performed to reduce the overall number of cloud points. This process averages the properties of pixels within user defined volumes to create a lower resolution, but more computationally manageable point clound. Leaf size chosen for this exersize was .005 as it provided adequate performance, while maintaining decent visual representations of the objects. 
+The second step applied was to filter out all points that were not in the region of interest (i.e. outside of the table). This was done utilizing two passthrough filters: A filter in the z axis to remove all points below the table and a fiter applied to the y axis to remove all poits to the left and right of the table. One can see in the image below, that the points below the table, and to either side have been clipped in the image on the right, following passthrough filtering
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/stat_filter.png "Before passthrough")
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/passthrough.png "After passthrough")
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
