@@ -37,7 +37,11 @@ After trying several differnt combinations of SVC kernels and samples for each o
   * n Samples = 30
 
 More optimal configurations are likely possible, but these settings resulted in satisfactory results, as will be seen, in all 3 scenarios. The confusion matrix found with these settings is shown below:
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png "Confusion Matrix Raw")
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_2.png "Confusion Matrix Normalized")
 
+
+https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
