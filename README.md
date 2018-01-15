@@ -25,6 +25,13 @@ The successful project will complete the following steps and requiremnts:
   * Scenario 2: Identify 80% of the objects correctly (4 of 5 objects presented)
   * Scneario 3: Identify 75% of the objects correctly (6 of 8 objects presented)
 
+#### Project Artifacts
+  * Python Script: [perception_server.py](perception_server.py)
+  * Scenario 1 yaml: [output_1.yaml](output_1.yaml)
+  * Scenario 2 yaml: [output_2.yaml](output_2.yaml)
+  * Scenario 3 yaml: [output_3.yaml](output_.yaml)
+  
+
 ---
 ### Extracting and Training Features
 Classifying the individual objects was done using a Support Vector Machine that is trained on two feature vectors: 
