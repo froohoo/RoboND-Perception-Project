@@ -49,6 +49,10 @@ As previously mentioned, this point cloud data contains noise to mimick a real c
   * Number of neighbors sampled = 6
   * Outlier std deviation from mean = .001
 
+Results of applying the statistical filter with the above settings both before and after:
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/no_stat_filter.png "Raw point could data")
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/stat_filter.png "With statistical filter")
+
 
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
