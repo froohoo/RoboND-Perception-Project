@@ -109,6 +109,7 @@ The message contents were also written to yaml files for each scneario as well t
 ## Results
 
 ### Scenario 1
+#### Overall: 100%
 
 | Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
 |-------------------|----------------|-----------------|--------------|--------------|--------------|
