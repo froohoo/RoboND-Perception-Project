@@ -27,7 +27,7 @@ The successful project will complete the following steps and requiremnts:
 
 ---
 ### Extracting and Training Features
-Classifying the individual objects was dune using a Support Vector Machine that is trained on two feature vectors: 
+Classifying the individual objects was done using a Support Vector Machine that is trained on two feature vectors: 
   * A HSV color space histogram
   * A surface normal histogram
 
