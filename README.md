@@ -89,6 +89,13 @@ Below the individual clusters are shown on the right, after being identified fro
 After the objects have been separated into individual clusters, the surface normal and HSV histograms for each cluster can be passed to the SVM classifier, which will utilize the model dataset trained previously to identify each of the clusters as an item from the set of items trained on. In the example shown below (from scenario 3), all of the items are correctly identified using this method except for the 'book' in the upper left. This is actually the 'glue' object. However, it is partially ocluded by the book, and thus ends up being misclassified as another book.
 ![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/labels.png "Objects")
 
+### Centroid Determination and ROS Messaging
+Following identification, the next step in the pipeline is to determine the centroid of each object and publish it as a ROS message so that it can be consumed by the motion plannning algorithm and passed to the PR2 for pick and place. The centroid was calculated using the average of all the points in an objects cluster as follows:
+
+```python
+centroid = np.mean(points_arr, axis=0)[:3]
+```
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
