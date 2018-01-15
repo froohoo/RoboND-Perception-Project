@@ -110,6 +110,12 @@ The message contents were also written to yaml files for each scneario as well t
 
 ### Scenario 1
 
+| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
+|-------------------|----------------|-----------------|--------------|--------------|--------------|
+| Biscuits          | Green          | Right           | Biscuits     | Green        | Right        |
+| Soap              | Green          | Right           | Soap         | Green        | Right        |
+| Soap2             | Red            | Left            | Soap2        | Red          | Left         |
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
