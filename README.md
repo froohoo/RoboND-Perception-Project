@@ -127,6 +127,25 @@ The message contents were also written to yaml files for each scneario as well t
 | book              | red            | Left            | book         | red          | left         |
 | soap2             | red            | Left            | soap2        | red          | left         |
 | glue              | red            | Left            | glue         | red          | left         |
+
+### Scenario 3
+#### Overall: 87.5%
+
+| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
+|-------------------|----------------|-----------------|--------------|--------------|--------------|
+| sticky_notes      | red            | left            | sticky_notes | red          | left         |
+| book              | red            | left            | book         | red          | left         |
+| snacks            | green          | right           | snacks       | green        | right        |
+| biscuits          | green          | right           | biscuits     | green        | right        |
+| eraser            | red            | left            | eraser       | red          | left         |
+| soap2             | green          | right           | soap2        | green        | right        |
+| soap              | green          | right           | soap         | green        | right        |
+| glue              | red            | Left            | NOT DETECTED | N/A          | N/A          |
+
+## Summary / Conclusion
+The methods described above were almost entirely successful at identifying the items presented in all three worlds. The one exception being the glue present in scenario 3 which was at times either not identified at all, or incorrectly identified as a book. Since the glue was successfully identified in scenario 2 consistently, I believe the primary driver of this was due to the view of the glue being ocluded by the book. A potential solve for this would be to pan the robot slightly right or left to obtain a clearer view of the objects when partially blocked from vew. 
+With respect to the environment, significant challenges were encountered in actually getting the robot to complite pick and place operations in Gazebo. In addition to the stability challenges in Gazebo, the robot would repeatedly fail to pick up objects, or drop objects following what otherwise appeared to be a perfectly valid grasp maneuver. Wiating an extended time following the grasping step, and changing the friction coefficients in the world file did not appear to have any positive effect on this behavior.  
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
