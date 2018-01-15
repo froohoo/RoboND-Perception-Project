@@ -25,6 +25,19 @@ The successful project will complete the following steps and requiremnts:
   * Scenario 2: Identify 80% of the objects correctly (4 of 5 objects presented)
   * Scneario 3: Identify 75% of the objects correctly (6 of 8 objects presented)
 
+---
+### Extracting and Training Features
+Classifying the individual objects will be dune using a Support Vector Machine that is trained on two feature vectors: 
+  * A HSV color space histogram
+  * A surface normal histogram
+
+After trying several differnt combinations of SVC kernels and samples for each object, a satisfactorily good result was found with the following parameters:
+  * Kernel = RBF
+  * C = 4.0
+  * n Samples = 30
+
+More optimal configurations are likely possible, but these settings resulted in satisfactory results, as will be seen, in all 3 scenarios. The confusion matrix found with these settings is shown below:
+
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
