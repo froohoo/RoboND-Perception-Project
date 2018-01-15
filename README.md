@@ -69,6 +69,10 @@ Once the table was removed, the next step was to apply the Euclidian Clustering 
   * Maximum Cluster Points = 2000
   * Maximum Point Distance = 0.02
 
+Below the individual clusters are shown on the right, after being identified from the point cloud following removal of the table by RANSAC segmentation.
+
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/objects.png "Objects")
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/cluster.png "Clusters")
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/1067/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
