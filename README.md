@@ -51,7 +51,8 @@ The following models were used to train the SVM. It is assumed that all objects 
 ----
 #### Color Only Approach (A Mistake)
 This section retains an overive of the results from my first attempt following a significant oversight in the normal histogram calculation. In this first attempt, the historgram function was incorrectly set at (0,256), when in the correct range should have been at (-1,1) for unit normal vectors. Set for 32 bins this resulted in normal histograms that were identical to the SVM for all items since all normal vectors with these settings would have ended up in the same bin.
-Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy, only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   * Kernel = RBF
+Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy, only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
+  * Kernel = RBF
   * C = 4.0
   * n Samples = 30
 
