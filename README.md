@@ -50,7 +50,7 @@ The following models were used to train the SVM. It is assumed that all objects 
   * eraser
 ----
 #### Color Only Approach (A Mistake)
-This section retains an overive of the results from my first attempt following a significant oversight in the normal histogram calculation. In this first attempt, the historgram function was incorrectly set at (0,256), when in the correct range should have been at (-1,1) for unit normal vectors. Set for 32 bins this resulted in normal histograms that were identical to the SVM for all items since all normal vectors with these settings would have ended up in the same bin.
+This section retains the summary of the results from my first attempt following a mistake in the normal histogram calculation. In this first attempt the historgram function was incorrectly configured for a range of (0,256), when in the correct range should have been at (-1,1) for unit normal vectors. Set for 32 bins oversight resulted in normal histograms that were identical to the SVM for all items since all normal vectors with these settings ended up in the same bin, with the rest of the bins being zero.
 Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy, only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
   * Kernel = RBF
   * C = 4.0
@@ -98,7 +98,7 @@ Despite that oversight, which effectively turned the SVM into a color only class
 
 ----
 #### Revised Approach (Corrected)
-
+Following correction of the error, the feature capture step had to be re-run to caputure accurate normal histograms and then retrained. By manipulating C and gamma I was able to obtain  
 
 ### Recieving, Filtering, and Conditoining the Point Cloud Data
 #### Recieving the Point Cloud
