@@ -49,16 +49,56 @@ The following models were used to train the SVM. It is assumed that all objects 
   * snacks
   * eraser
 
-#### Color Only Approach
-This section shows the results from my first attempt of completing this project following a major oversight on my part. Spec
-After trying several differnt combinations of SVC kernels and samples for each object, a satisfactorily good result was found with the following parameters:
+#### Color Only Approach (A Mistake)
+This section reviews the results from my first attempt of completing this project following a significant oversight in the normal histogram calculation. For the first analysis, the historgram function was incorrectly set at (0,256), when in reality it should have been at (-1,1). With 32 bins, this resulted in normal histograms that were identical to the SVM for all items since all normal vectors would be binned in the same bin.
+Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum requirements, and only failed to identify one item (glue bottle) in the third world. This result was achieved using the following parameters:
   * Kernel = RBF
   * C = 4.0
   * n Samples = 30
 
-More optimal configurations are possible, but these settings resulted in satisfactory results, as will be seen, in all 3 scenarios. The confusion matrix found with these settings are as follows:
-![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png "Confusion Matrix Raw")
-![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_2.png "Confusion Matrix Normalized")
+##### Color Only confusion matrices:
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png "Color only Confusion Matrix Raw")
+![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_2.png "Color only Confusion Matrix Normalized")
+
+##### Color Only results:
+## Results
+
+### Scenario 1
+#### Overall: 100%
+
+| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
+|-------------------|----------------|-----------------|--------------|--------------|--------------|
+| biscuits          | green          | right           | biscuits     | green        | right        |
+| soap              | green          | right           | soap         | green        | right        |
+| soap2             | red            | left            | soap2        | red          | left         |
+
+### Scenario 2
+#### Overall: 100%
+
+| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
+|-------------------|----------------|-----------------|--------------|--------------|--------------|
+| biscuits          | green          | right           | biscuits     | green        | right        |
+| soap              | green          | right           | soap         | green        | right        |
+| book              | red            | Left            | book         | red          | left         |
+| soap2             | red            | Left            | soap2        | red          | left         |
+| glue              | red            | Left            | glue         | red          | left         |
+
+### Scenario 3
+#### Overall: 87.5%
+
+| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
+|-------------------|----------------|-----------------|--------------|--------------|--------------|
+| sticky_notes      | red            | left            | sticky_notes | red          | left         |
+| book              | red            | left            | book         | red          | left         |
+| snacks            | green          | right           | snacks       | green        | right        |
+| biscuits          | green          | right           | biscuits     | green        | right        |
+| eraser            | red            | left            | eraser       | red          | left         |
+| soap2             | green          | right           | soap2        | green        | right        |
+| soap              | green          | right           | soap         | green        | right        |
+| glue              | red            | Left            | NOT DETECTED | N/A          | N/A          |
+
+#### Revised Approach (Corrected)
+
 
 ### Recieving, Filtering, and Conditoining the Point Cloud Data
 #### Recieving the Point Cloud
