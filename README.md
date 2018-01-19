@@ -50,7 +50,7 @@ The following models were used to train the SVM. It is assumed that all objects 
   * eraser
 ----
 #### Color Only Approach (A Mistake)
-This section retains the summary of the results from my first attempt following a mistake in the normal histogram calculation. In this first attempt the historgram function was incorrectly configured for a range of (0,256), when the correct range should have been at (-1,1) for unit normal vectors. When set at 32 bins the oversight resulted in normal histograms that were identical for all items since all normal vectors ended up in the same bin, with the rest of the bins being zero.
+This section retains the summary of the results from my first attempt following a mistake in the surface normal histogram calculation. The historgram function was incorrectly configured for a range of (0,256), when the correct range should have been at (-1,1) for unit normal vectors. When set at 32 bins the oversight resulted in normal histograms that were identical for all items since all normal vectors ended up in the same bin, with the rest of the bins being zero.
 Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy, only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
   * Kernel = RBF
   * C = 4.0
