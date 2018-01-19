@@ -63,7 +63,7 @@ Despite that oversight, which effectively turned the SVM into a color only class
 
 ----
 #### Revised Approach (Corrected)
-Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. I felt the same parmaters would provide the most interesting resultsr. Specifically, it was of interest to learn what benifits adding the normals would have on the confusion matrices as well as the success of identification. An unexpected result occurred in that some predictions appear to perform better (biscuits, book, eraser, soap, soap2, sticky notes) while some have gotten worse (glue, snacks). I suspect this is due to the surface normal information causing some items to appear more distinct while simultaneously making some other items appear more similar. 
+Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. I felt the same parmaters would provide the most interesting results. Specifically, it was of interest to learn what benifits adding the normals would have on the confusion matrices as well as the success of identification. An unexpected result occurred in that some predictions appear to perform better (biscuits, book, eraser, soap, soap2, sticky notes) while some have gotten worse (glue, snacks). I suspect this is due to the surface normal information causing some items to appear more distinct while simultaneously making some other items appear more similar. 
 
 #### Color Only confusion matrices:
 ![alt text](Correct_Raw.png "Color only Confusion Matrix Raw")
