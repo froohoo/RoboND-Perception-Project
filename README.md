@@ -63,11 +63,14 @@ Despite that oversight, which effectively turned the SVM into a color only class
 
 ----
 #### Revised Approach (Corrected)
-Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. I felt the same parmaters would provide the most interesting results. Specifically, it was of interest to learn what benifits adding the normals would have on the confusion matrices as well as the success of identification. An unexpected result occurred in that some predictions appear to perform better (biscuits, book, eraser, soap, soap2, sticky notes) while some have gotten worse (glue, snacks). I suspect this is due to the surface normal information causing some items to appear more distinct while simultaneously making some other items appear more similar. 
+Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. An initial attmept was made to train the SVM using the same parameters, but this yielded unaccetpable results. Ultimately acceptable results were achieved using the following settings:
+  * Kernel = linear
+  * C = .1
+  * n Samples = 80
 
-#### Color Only confusion matrices:
-![alt text](Correct_Raw.png "Color only Confusion Matrix Raw")
-![alt text](Correct_Normalized.png "Color only Confusion Matrix Normalized")
+#### Confusion matrices:
+![alt text](Correct_Raw.png "Confusion Matrix Raw")
+![alt text](Correct_Normalized.png "Confusion Matrix Normalized")
 
 ### Recieving, Filtering, and Conditoining the Point Cloud Data
 #### Recieving the Point Cloud
