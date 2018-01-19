@@ -50,55 +50,24 @@ The following models were used to train the SVM. It is assumed that all objects 
   * eraser
 ----
 #### Color Only Approach (A Mistake)
-This section retains the summary of the results from my first attempt following a mistake in the normal histogram calculation. In this first attempt the historgram function was incorrectly configured for a range of (0,256), when in the correct range should have been at (-1,1) for unit normal vectors. Set for 32 bins oversight resulted in normal histograms that were identical to the SVM for all items since all normal vectors with these settings ended up in the same bin, with the rest of the bins being zero.
+This section retains the summary of the results from my first attempt following a mistake in the normal histogram calculation. In this first attempt the historgram function was incorrectly configured for a range of (0,256), when the correct range should have been at (-1,1) for unit normal vectors. When set at 32 bins the oversight resulted in normal histograms that were identical for all items since all normal vectors ended up in the same bin, with the rest of the bins being zero.
 Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy, only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
   * Kernel = RBF
   * C = 4.0
   * n Samples = 30
 
 #### Color Only confusion matrices:
-![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png "Color only Confusion Matrix Raw")
-![alt text](https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_2.png "Color only Confusion Matrix Normalized")
+![alt text](figure_1.png "Color only Confusion Matrix Raw")
+![alt text](figure_2.png "Color only Confusion Matrix Normalized")
 
-#### Color Only results:
-
-#### Scenario 1
-#### Overall: 100%
-
-| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
-|-------------------|----------------|-----------------|--------------|--------------|--------------|
-| biscuits          | green          | right           | biscuits     | green        | right        |
-| soap              | green          | right           | soap         | green        | right        |
-| soap2             | red            | left            | soap2        | red          | left         |
-
-#### Scenario 2
-#### Overall: 100%
-
-| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
-|-------------------|----------------|-----------------|--------------|--------------|--------------|
-| biscuits          | green          | right           | biscuits     | green        | right        |
-| soap              | green          | right           | soap         | green        | right        |
-| book              | red            | Left            | book         | red          | left         |
-| soap2             | red            | Left            | soap2        | red          | left         |
-| glue              | red            | Left            | glue         | red          | left         |
-
-#### Scenario 3
-#### Overall: 87.5%
-
-| Expected Item     |Expected Bin    |Expected Arm     |Detected Item | Assigned Bin |Assigned Arm  |
-|-------------------|----------------|-----------------|--------------|--------------|--------------|
-| sticky_notes      | red            | left            | sticky_notes | red          | left         |
-| book              | red            | left            | book         | red          | left         |
-| snacks            | green          | right           | snacks       | green        | right        |
-| biscuits          | green          | right           | biscuits     | green        | right        |
-| eraser            | red            | left            | eraser       | red          | left         |
-| soap2             | green          | right           | soap2        | green        | right        |
-| soap              | green          | right           | soap         | green        | right        |
-| glue              | red            | Left            | NOT DETECTED | N/A          | N/A          |
 
 ----
 #### Revised Approach (Corrected)
-Following correction of the error, the feature capture step had to be re-run to caputure accurate normal histograms and then retrained. By manipulating C and gamma I was able to obtain  
+Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. I specifically chose the same paramters because I felt it would provide the most interesting results in light of the initial error. Specifically, I thought it would be interesting to see what benifits adding the normals would have to the confusion matrices, as well as the success of the identification. 
+
+#### Color Only confusion matrices:
+![alt text](Correct_Raw.png "Color only Confusion Matrix Raw")
+![alt text](Correct_Normalized.png "Color only Confusion Matrix Normalized")
 
 ### Recieving, Filtering, and Conditoining the Point Cloud Data
 #### Recieving the Point Cloud
@@ -155,7 +124,7 @@ The message contents were also written to yaml files for each scneario as well t
 
 ---
 
-## Results
+## Color Histogram Only Results
 
 ### Scenario 1
 #### Overall: 100%
