@@ -50,8 +50,8 @@ The following models were used to train the SVM. It is assumed that all objects 
   * eraser
 ----
 #### Color Only Approach (A Mistake)
-This section retains the summary of the results from my first attempt following a mistake in the surface normal histogram calculation. The historgram function was incorrectly configured for a range of (0,256), when the correct range should have been at (-1,1) for unit normal vectors. When set at 32 bins the oversight resulted in normal histograms that were identical for all items since all normal vectors ended up in the same bin, with the rest of the bins being zero.
-Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy, only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
+This section retains the summary of the results from my first attempt following a mistake in the surface normal histogram calculation. The historgram function was incorrectly configured for a range of (0,256) when the correct range should have been at (-1,1) for unit normal vectors. When set at 32 bins the oversight resulted in normal histograms that were identical for all items since all normal vectors ended up in the same bin with the rest of the bins being zero.
+Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
   * Kernel = RBF
   * C = 4.0
   * n Samples = 30
@@ -63,7 +63,7 @@ Despite that oversight, which effectively turned the SVM into a color only class
 
 ----
 #### Revised Approach (Corrected)
-Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. I specifically chose the same paramters (kernel, C value, and sample size) because I felt it would provide the most interesting results in light of the initial error. Specifically, I thought it would be interesting to see what benifits adding the normals would have to the confusion matrices, as well as the success of the identification. An interesting result occurred with respect to the confusion matrices in that some predictions appear to perform better while some have gotten worse. I suspect this could be due to the fact that the surface normal information is causing some items to appear more distinct from the others while simultaneously making some other items appear more similar. 
+Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. I felt the same parmaters would provide the most interesting resultsr. Specifically, it was of interest to learn what benifits adding the normals would have on the confusion matrices as well as the success of identification. An unexpected result occurred in that some predictions appear to perform better (biscuits, book, eraser, soap, soap2, sticky notes) while some have gotten worse (glue, snacks). I suspect this is due to the surface normal information causing some items to appear more distinct while simultaneously making some other items appear more similar. 
 
 #### Color Only confusion matrices:
 ![alt text](Correct_Raw.png "Color only Confusion Matrix Raw")
