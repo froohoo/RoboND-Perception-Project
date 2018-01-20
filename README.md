@@ -58,8 +58,8 @@ Despite that oversight, which effectively turned the SVM into a color only class
   * n Samples = 30
 
 #### Color Only confusion matrices:
-![alt text](figure_1.png "Color only Confusion Matrix Raw")
-![alt text](figure_2.png "Color only Confusion Matrix Normalized")
+![alt text](figure_1.png "Color only Confusion Matrix Raw"=250x250)
+![alt text](figure_2.png "Color only Confusion Matrix Normalized"=250x250)
 
 
 ----
@@ -74,7 +74,7 @@ This resulted in a total of 100 training samples generated (per item). The SVM w
 
   * Kernel = rbf
   * C = 4.0
-  * gamma = 'auto
+  * gamma = 'auto'
 
 #### Confusion matrices:
 ![alt text](CM-Final_Raw.png "Confusion Matrix Raw, with normals, using stepwise sampler")
