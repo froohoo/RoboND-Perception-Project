@@ -54,6 +54,7 @@ This section retains the summary of the results from my first attempt following 
 Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
   * Kernel = rbf
   * C = 4.0
+  * gamma = 'auto'
   * n Samples = 30
 
 #### Color Only confusion matrices:
@@ -63,22 +64,21 @@ Despite that oversight, which effectively turned the SVM into a color only class
 
 ----
 #### Revised Approach (Corrected)
-Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. An initial attmept was made to train the SVM using the same parameters, but this yielded unaccetpable results. Ultimately acceptable results were achieved using the following settings:
-  * Kernel = rbf
-  * C = 4.0
-  * n Samples = 100
-
-Contrary to expectations, the addition of the surface normal data increased the instances of mis-identified objects especially with where items were being mis-identified as 'book'. Multple attempts at changing bin sizes, SVM kernels and sample sizes did not appear to consistently improve results to the level of the original color only filter. A filter applied to the histogram to reduce noise had some limited success, but ultimately did not get the model back to the accuracy of the color only sample. Due to frustration with the fluctuation in SVM accuracy by the random sample generation the sample generator was changed from a random pose generator, to a deterministic step-wise sample generator. The original intent being that, if nothing else, it would remove the variability introduced by  the randomness of the sampling. However the first run of the SVM model creation with the stepwise generator produced such positive results, it was retained. The stepwise generator produced steps as follows
+Contrary to expectations, the addition of the surface normal data increased the instances of mis-identified objects especially with where items were being mis-identified as 'book'. Multple attempts at changing bin sizes, SVM kernels and sample sizes did not appear to consistently improve results to the level of the original color only filter. A filter applied to the histogram to reduce noise had some limited success, but ultimately did not get the model back to the accuracy of the color only sample. Due to fluctuation in SVM accuracy induced by the random sample generation, the sample generator was changed from a random pose generator, to a deterministic step-wise sample generator. The original intent being that, if nothing else, it would remove the variability introduced by  the randomness of the sampling so that effects of changing model parameters could be attributed directly to the changes made. However the first run of the SVM model creation with the stepwise generator produced such positive results, it was retained. The stepwise sampling was implemented by modifying [catpture_features.py](captures_features.py) to pass roll, pitch, yaw to [training_helper.py](training_helper.py) which was modified to accept them as arguments. The following criteria were used to generate the SVM training set.
 
   * roll = 0 (constant)
   * pitch = 0 - pi (in steps of pi/10)
   * yaw = 0 - 2pi (in steps of pi/10)
 
-This resulted in a total of 100 samples generated. Associated confusion matrices are shown below:
+This resulted in a total of 100 training samples generated (per item). The SVM was then rerun wiht the same parameters as preveiously used:
+
+  * Kernel = rbf
+  * C = 4.0
+  * gamma = 'auto
 
 #### Confusion matrices:
-![alt text](Correct_Raw.png "Confusion Matrix Raw")
-![alt text](Correct_Normalized.png "Confusion Matrix Normalized")
+![alt text](CM-Final_Raw.png "Confusion Matrix Raw, with normals, using stepwise sampler")
+![alt text](CM-Final_Normalized.png "Confusion Matrix Normalized, with normals, using stepwise sampler")
 
 ### Recieving, Filtering, and Conditoining the Point Cloud Data
 #### Recieving the Point Cloud
