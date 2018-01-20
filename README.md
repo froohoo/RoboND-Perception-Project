@@ -52,7 +52,7 @@ The following models were used to train the SVM. It is assumed that all objects 
 #### Color Only Approach (A Mistake)
 This section retains the summary of the results from my first attempt following a mistake in the surface normal histogram calculation. The historgram function was incorrectly configured for a range of (0,256) when the correct range should have been at (-1,1) for unit normal vectors. When set at 32 bins the oversight resulted in normal histograms that were identical for all items since all normal vectors ended up in the same bin with the rest of the bins being zero.
 Despite that oversight, which effectively turned the SVM into a color only classifier, the output still exceeded minimum project requirements for accuracy only failing to identify one item (glue bottle) in the third world. The settings used for this attempt were:   
-  * Kernel = RBF
+  * Kernel = rbf
   * C = 4.0
   * n Samples = 30
 
@@ -64,9 +64,17 @@ Despite that oversight, which effectively turned the SVM into a color only class
 ----
 #### Revised Approach (Corrected)
 Following correction of the normal histogram defect, the SVM was rerun wiht the same parameters. An initial attmept was made to train the SVM using the same parameters, but this yielded unaccetpable results. Ultimately acceptable results were achieved using the following settings:
-  * Kernel = linear
-  * C = .1
-  * n Samples = 80
+  * Kernel = rbf
+  * C = 4.0
+  * n Samples = 100
+
+Contrary to expectations, the addition of the surface normal data increased the instances of mis-identified objects especially with where items were being mis-identified as 'book'. Multple attempts at changing bin sizes, SVM kernels and sample sizes did not appear to consistently improve results to the level of the original color only filter. A filter applied to the histogram to reduce noise had some limited success, but ultimately did not get the model back to the accuracy of the color only sample. Due to frustration with the fluctuation in SVM accuracy by the random sample generation the sample generator was changed from a random pose generator, to a deterministic step-wise sample generator. The original intent being that, if nothing else, it would remove the variability introduced by  the randomness of the sampling. However the first run of the SVM model creation with the stepwise generator produced such positive results, it was retained. The stepwise generator produced steps as follows
+
+  * roll = 0 (constant)
+  * pitch = 0 - pi (in steps of pi/10)
+  * yaw = 0 - 2pi (in steps of pi/10)
+
+This resulted in a total of 100 samples generated. Associated confusion matrices are shown below:
 
 #### Confusion matrices:
 ![alt text](Correct_Raw.png "Confusion Matrix Raw")
