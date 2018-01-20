@@ -26,8 +26,11 @@ The successful project will complete the following steps and requiremnts:
   * Scneario 3: Identify 75% of the objects correctly (6 of 8 objects presented)
 
 #### Project Artifacts
-  * Perception Script: [perception_server.py](perception_server.py)
-  * features Script (normal & color Histograms) [features.py](features.py)
+  * Perception script: [perception_server.py](perception_server.py)
+  * SVM training script: [train_svm.py](train_svm.py)
+  * Capture features script: [capture_features.py](capture_features.py)
+  * Training helper Script: [training_helper.py](training_helper.py)
+  * Features script (normal & color Histograms) [features.py](features.py)
   * Scenario 1 yaml: [output_1.yaml](output_1.yaml)
   * Scenario 2 yaml: [output_2.yaml](output_2.yaml)
   * Scenario 3 yaml: [output_3.yaml](output_.yaml)
