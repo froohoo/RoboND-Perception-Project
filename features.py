@@ -14,7 +14,6 @@ def compute_color_histograms(cloud, using_hsv=False):
 
     # Compute histograms for the clusters
     point_colors_list = []
-
     # Step through each point in the point cloud
     for point in pc2.read_points(cloud, skip_nans=True):
         rgb_list = float_to_rgb(point[3])
@@ -58,18 +57,20 @@ def compute_normal_histograms(normal_cloud):
     for norm_component in pc2.read_points(normal_cloud,
                                           field_names = ('normal_x', 'normal_y', 'normal_z'),
                                           skip_nans=True):
+
         norm_x_vals.append(norm_component[0])
         norm_y_vals.append(norm_component[1])
         norm_z_vals.append(norm_component[2])
 
     # TODO: Compute histograms of normal values (just like with color)
-    x_hist = np.histogram(norm_x_vals, bins=32, range=(0,256))
-    y_hist = np.histogram(norm_y_vals, bins=32, range=(0,256))
-    z_hist = np.histogram(norm_z_vals, bins=32, range=(0,256))
+    x_hist = np.histogram(norm_x_vals, bins=6, range=(-1,1))
+    y_hist = np.histogram(norm_y_vals, bins=6, range=(-1,1))
+    z_hist = np.histogram(norm_z_vals, bins=6, range=(-1,1))
     
     # TODO: Concatenate and normalize the histograms
     pc_features = np.concatenate((x_hist[0], y_hist[0], z_hist[0])).astype(np.float64)
     norm_pc_features = pc_features / np.sum(pc_features)
+
     
     # Generate random features for demo mode.  
     # Replace normed_features with your feature vector
@@ -77,3 +78,4 @@ def compute_normal_histograms(normal_cloud):
     normed_features = norm_pc_features
     
     return normed_features 
+
