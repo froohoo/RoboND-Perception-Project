@@ -140,7 +140,8 @@ The message contents were also written to yaml files for each scneario as well t
 
 ---
 
-## Color Histogram Only Results
+## Summary of Results
+The results ended up being nearly identical between the color only classifier, and the color + surface normal classifier. In both cases the glue bottle in scenario 3 was not identified.
 
 ### Scenario 1
 #### Overall: 100%
@@ -174,7 +175,7 @@ The message contents were also written to yaml files for each scneario as well t
 | eraser            | red            | left            | eraser       | red          | left         |
 | soap2             | green          | right           | soap2        | green        | right        |
 | soap              | green          | right           | soap         | green        | right        |
-| glue              | red            | Left            | NOT DETECTED | N/A          | N/A          |
+| glue              | red            | Left            | book         | N/A          | N/A          |
 
 ## Summary / Conclusion
 The methods described above were almost entirely successful at identifying the items presented in all three worlds. The one exception being the glue present in scenario 3 which was at times either not identified at all, or incorrectly identified as a book. Since the glue was successfully identified in scenario 2 consistently, I believe the primary driver of this was due to the view of the glue being ocluded by the book. A potential solve for this would be to pan the robot slightly right or left to obtain a clearer view of the objects when partially blocked from vew. 
