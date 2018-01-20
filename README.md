@@ -58,8 +58,8 @@ Despite that oversight, which effectively turned the SVM into a color only class
   * n Samples = 30
 
 #### Color Only confusion matrices:
-![alt text](figure_1.png "Color only Confusion Matrix Raw" =250x250)
-![alt text](figure_2.png "Color only Confusion Matrix Normalized" =250x250)
+![alt text](figure_1.png "Color only Confusion Matrix Raw")<!-- .element height="50%" width="50%" -->
+![alt text](figure_2.png "Color only Confusion Matrix Normalized")<!-- .element height="50%" width="50%" -->
 
 
 ----
