@@ -78,7 +78,7 @@ This resulted in a total of 100 training samples generated (per item). The SVM w
 
 #### Confusion matrices:
 ![alt text](CM-Final_Raw.png "Confusion Matrix Raw, with normals, using stepwise sampler")
-![alt text](CM-Final_Normalized.png "Confusion Matrix Normalized, with normals, using stepwise sampler")
+![alt text](CM-Final_Normed.png "Confusion Matrix Normalized, with normals, using stepwise sampler")
 
 ### Recieving, Filtering, and Conditoining the Point Cloud Data
 #### Recieving the Point Cloud
