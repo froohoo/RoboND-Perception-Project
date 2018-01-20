@@ -58,8 +58,7 @@ Despite that oversight, which effectively turned the SVM into a color only class
   * n Samples = 30
 
 #### Color Only confusion matrices:
-<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png" height="300">
-<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_2.png" height="300">
+<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_1.png" height="300"><img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/figure_2.png" height="300">
 
 
 ----
