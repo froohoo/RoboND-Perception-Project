@@ -115,12 +115,12 @@ Below the individual clusters are shown on the right, after being identified fro
 
 ### Object Recognition and Labeling
 After the objects have been separated into individual clusters, the surface normal and HSV histograms for each cluster can be passed to the SVM classifier, which will utilize the model dataset trained previously to identify each of the clusters as an item from the training set. In the example shown below (from scenario 3), all of the items are correctly identified using this method except for the 'book' in the upper left. This is actually the 'glue' object. However, it is partially ocluded by the book, and thus ends up being misclassified as another book.
-####Scenario One
-<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/Scenario1_Objects" height="400">
-####Scenario Two
-<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/Scenario2_Objects" height="400">
-####Scenario Three
-<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/Scenario3_Objects" height="400">
+#### Scenario One
+<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/Scenario1_Objects.png" height="400">
+#### Scenario Two
+<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/Scenario2_Objects.png" height="400">
+#### Scenario Three
+<img src="https://github.com/froohoo/RoboND-Perception-Project/blob/master/Scenario3_Objects.png" height="400">
 
 
 ### Centroid Determination and ROS Messaging
